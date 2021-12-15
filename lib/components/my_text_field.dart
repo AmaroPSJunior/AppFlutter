@@ -1,6 +1,3 @@
-import 'dart:developer';
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatefulWidget {
@@ -22,12 +19,13 @@ class _MyTextFieldState extends State<MyTextField> {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextField(
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               label: Text(widget.labelField + ' - ' + _imputVelue),
             ),
+            keyboardType: TextInputType.number,
             onChanged: (value) {
               _setUserName(value);
             },
