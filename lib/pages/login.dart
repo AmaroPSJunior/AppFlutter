@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_application_1/components/logo.dart';
 import 'package:flutter_application_1/components/myTextField.dart';
 
@@ -13,6 +14,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -22,7 +24,7 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.all(30),
                 child: Text(
-                  'Login',
+                  'to adopt',
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),

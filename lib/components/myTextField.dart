@@ -13,37 +13,27 @@ class MyTextField extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<MyTextField> {
-  String _userName = '';
-  String _password = '';
+  String _imputVelue = '';
 
-  void _setUserName() {
-    setState(() {
-      _userName = 'teste';
-    });
-  }
-
-  void _setPassword() {
-    setState(() {
-      _userName = 'teste';
-    });
-  }
-
-  _teste() {
-    setState(() {
-      _userName = widget.labelField;
-    });
-  }
+  void _setUserName(data) => setState(() => _imputVelue = data);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      child: TextField(
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          label: Text(widget.labelField),
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.all(10),
+          child: TextField(
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              label: Text(widget.labelField + ' - ' + _imputVelue),
+            ),
+            onChanged: (value) {
+              _setUserName(value);
+            },
+          ),
         ),
-      ),
+      ],
     );
   }
 }
