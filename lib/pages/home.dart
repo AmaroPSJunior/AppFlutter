@@ -14,22 +14,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      onDrawerChanged: (data) {
+        debugPrint('onDrawerChanged $data');
+      },
       appBar: MyAppBar(appBarTitle: widget.title),
       drawer: const MyDrawer(),
       body: const MyBody(variavel: 10),
-      floatingActionButton:
-        const MyFooter(), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: const MyFooter(),
     );
   }
 }

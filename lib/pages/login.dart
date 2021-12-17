@@ -42,10 +42,17 @@ class _LoginState extends State<Login> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('to adopt', style: Theme.of(context).textTheme.headline4),
+              const SizedBox(height: 20),
+              Center(
+                child: Text(
+                  'to adopt',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+              ),
+              const SizedBox(height: 30),
               const Logo(),
               TextField(
                 decoration: InputDecoration(
@@ -71,7 +78,10 @@ class _LoginState extends State<Login> {
                     width: 150,
                     child: OutlinedButton(
                       child: const Text('Cadastrar-se'),
-                      onPressed: () => debugPrint('Teste amaro'),
+                      onPressed: () {
+                        // Navigator.of(context).pushNamed('/signin');
+                        Navigator.pushNamed(context, '/signin');
+                      },
                     ),
                   ),
                   const SizedBox(width: 20),
@@ -79,20 +89,29 @@ class _LoginState extends State<Login> {
                     width: 150,
                     child: ElevatedButton(
                       child: const Text('Entrar'),
-                      onPressed: () => _showMyDialog(
-                        title: 'title',
-                        message: 'User: $_userName \nSenha: $_password',
-                        // textButtonClose: 'Fechar',
-                      ),
+                      onPressed: () async {
+                        final future = await Navigator.pushNamed(
+                          context,
+                          '/home',
+                          arguments: 'meu nome',
+                        );
+                        debugPrint('final future: $future');
+                      },
                     ),
                   ),
                 ],
               ),
-              const SizedBox(
+              SizedBox(
                 width: 320,
                 child: ElevatedButton(
-                  onPressed: null,
-                  child: Text('Disabled'),
+                  child: const Text('Alert'),
+                  onPressed: () {
+                    _showMyDialog(
+                      title: 'title',
+                      message: 'User: $_userName \nSenha: $_password',
+                      textButtonClose: 'Fechar',
+                    );
+                  },
                 ),
               ),
             ],

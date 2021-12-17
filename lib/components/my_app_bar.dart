@@ -34,10 +34,7 @@ class _MyAppBarState extends State<MyAppBar> {
         IconButton(
           icon: const Icon(Icons.logout),
           tooltip: 'Sair',
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Logout realizado!')));
-          },
+          onPressed: () => Navigator.pop(context, 'Obrigado volte sempre!'),
         ),
       ],
     );
